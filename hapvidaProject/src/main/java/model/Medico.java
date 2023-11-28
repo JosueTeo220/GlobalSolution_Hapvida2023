@@ -5,7 +5,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "medicos")
+@Table(name = "Medico")
 public class Medico extends User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,5 +13,6 @@ public class Medico extends User{
 
     @OneToMany(mappedBy = "medico")
     private List<Paciente> pacientes;
+
 
 }

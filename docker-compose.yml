@@ -6,7 +6,6 @@ services:
     container_name: mysql-hapvida
     environment:
       MYSQL_DATABASE: hapvida-proj
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: super_secret
+      MYSQL_ROOT_PASSWORD: super_secret
     ports:
       - 3306:3306
