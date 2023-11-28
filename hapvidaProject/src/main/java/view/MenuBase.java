@@ -8,7 +8,9 @@ public abstract class MenuBase implements Menu {
         this.scanner = new Scanner(System.in);
     }
 
-    protected int lerOpcao(){
+
+    @Override
+    public int lerOpcao(){
         System.out.print("Escolha uma opção: ");
         return scanner.nextInt();
     }
