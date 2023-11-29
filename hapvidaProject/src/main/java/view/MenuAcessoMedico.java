@@ -4,11 +4,11 @@ import session.SessionFactoryProvider;
 import view.utils.MenuUtils;
 
 public class MenuAcessoMedico extends MenuBase {
-    private final SessionFactoryProvider sessionFactoryProvider;
-
+    
     public MenuAcessoMedico(SessionFactoryProvider sessionFactoryProvider) {
-        this.sessionFactoryProvider = sessionFactoryProvider;
+        super(sessionFactoryProvider);
     }
+
 
     @Override
     public void exibirOpcoes() {
@@ -17,15 +17,14 @@ public class MenuAcessoMedico extends MenuBase {
         System.out.println("2. Cadastrar");
         System.out.println("0. Sair");
         int opcao = this.lerOpcao();
-        this.processarOpcao(opcao);
+        this.processar(opcao);
     }
 
     @Override
-    public void processarOpcao(int opcao) {
+    public void processar(int opcao) {
         switch (opcao) {
             case 1:
-                MenuLoginMedico menuLogin = new MenuLoginMedico();
-                menuLogin.exibirOpcoes();
+                new MenuLoginMedico(sessionFactoryProvider).exibirOpcoes();
                 break;
             case 2:
                 new MenuCadastrarMedico(sessionFactoryProvider).exibirOpcoes();

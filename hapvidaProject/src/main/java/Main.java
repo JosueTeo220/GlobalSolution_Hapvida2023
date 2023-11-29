@@ -43,7 +43,7 @@ public class Main implements SessionFactoryProvider {
 
             menuAtual.exibirOpcoes();
             int opcao = menuAtual.lerOpcao();
-            menuAtual.processarOpcao(opcao);
+            menuAtual.processar(opcao);
         } catch (Exception e) {
             e.printStackTrace();
             StandardServiceRegistryBuilder.destroy(sessionFactory.getSessionFactoryOptions().getServiceRegistry());

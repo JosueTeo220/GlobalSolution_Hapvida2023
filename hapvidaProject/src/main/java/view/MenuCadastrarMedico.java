@@ -6,15 +6,15 @@ import session.SessionFactoryProvider;
 import view.utils.MenuUtils;
 
 public class MenuCadastrarMedico extends MenuBase {
-    private final SessionFactoryProvider sessionFactoryProvider;
 
     public MenuCadastrarMedico(SessionFactoryProvider sessionFactoryProvider) {
-        this.sessionFactoryProvider = sessionFactoryProvider;
+        super(sessionFactoryProvider);
     }
 
     @Override
     public void exibirOpcoes() {
         MenuUtils.limparConsole();
+        System.out.println("* MENU CADASTRO MÉDICO *\n");
 
         System.out.println("1. Digite sua CRM");
         String crm = MenuUtils.lerTexto();
@@ -22,9 +22,11 @@ public class MenuCadastrarMedico extends MenuBase {
         System.out.println("2. Digite sua senha");
         String senha = MenuUtils.lerTexto();
 
-        System.out.println("Conta criada: " + crm + " " + senha);
 
         try (Session session = sessionFactoryProvider.getSessionFactory().openSession()) {
+            System.out.println("Criando conta...");
+            MenuUtils.aguardarTempoCurto();
+
             session.beginTransaction();
 
             Medico medico = new Medico();
@@ -32,18 +34,26 @@ public class MenuCadastrarMedico extends MenuBase {
             medico.setPass(senha);
 
             session.save(medico);
-
             session.getTransaction().commit();
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        processarOpcao(1);
+        
+        processar(1);
     }
 
     @Override
-    public void processarOpcao(int opcao) {
+    public void processar(int opcao) {
+        try {
+            System.out.println("Conta criada com sucesso!");
+            MenuUtils.aguardarTempoMedio();        
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
         new MenuAcessoMedico(sessionFactoryProvider).exibirOpcoes();
     }
 }

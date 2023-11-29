@@ -27,4 +27,16 @@ public class MenuUtils {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
+
+    public static void aguardarTempoCurto() throws InterruptedException{
+        Thread.sleep(1000);
+    }
+
+    public static void aguardarTempoMedio() throws InterruptedException{
+        Thread.sleep(2000);
+    }
+
+        public static void aguardarTempoLongo() throws InterruptedException{
+        Thread.sleep(4000);
+    }
 }
