@@ -1,10 +1,16 @@
 package model;
 
 
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class User {
 
-    public String documento;
-    public String pass;
+    private String documento;
+    private String pass;
 
     public String getDocumento() {
         return documento;

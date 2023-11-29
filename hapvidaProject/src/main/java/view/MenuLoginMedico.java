@@ -1,6 +1,10 @@
 package view;
 
 public class MenuLoginMedico extends MenuBase{
+    
+
+
+
     @Override
     public void exibirOpcoes(){
         System.out.println("1. Olaaa");

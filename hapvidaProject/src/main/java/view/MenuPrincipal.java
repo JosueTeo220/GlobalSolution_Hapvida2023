@@ -1,7 +1,13 @@
 package view;
 
-public class MenuPrincipal extends MenuBase{
+import session.SessionFactoryProvider;
 
+public class MenuPrincipal extends MenuBase{
+    private final SessionFactoryProvider sessionFactoryProvider;
+
+    public MenuPrincipal(SessionFactoryProvider sessionFactoryProvider) {
+        this.sessionFactoryProvider = sessionFactoryProvider;
+    }
     @Override
     public void exibirOpcoes(){
         System.out.println("1. Sou Médico");
@@ -13,7 +19,7 @@ public class MenuPrincipal extends MenuBase{
     public void processarOpcao(int opcao) {
         switch (opcao) {
             case 1:
-                new MenuAcessoMedico().exibirOpcoes();
+                new MenuAcessoMedico(sessionFactoryProvider).exibirOpcoes();
             case 2:
                 new MenuLoginPaciente();
             case 0:
