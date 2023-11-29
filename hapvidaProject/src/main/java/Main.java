@@ -9,8 +9,11 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import view.Menu;
 import view.MenuPrincipal;
 
+
+
 public class Main {
     public static void main(String[] args) {
+
 
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 
@@ -26,11 +29,11 @@ public class Main {
 
             Menu menuAtual = new MenuPrincipal();
 
-            while (true) {
-                menuAtual.exibirOpcoes();
-                int opcao = menuAtual.lerOpcao();
-                menuAtual.processarOpcao(opcao);
-            }
+  
+            menuAtual.exibirOpcoes();
+            int opcao = menuAtual.lerOpcao();
+            menuAtual.processarOpcao(opcao);
+
 
         } catch (Exception e) {
             e.printStackTrace();

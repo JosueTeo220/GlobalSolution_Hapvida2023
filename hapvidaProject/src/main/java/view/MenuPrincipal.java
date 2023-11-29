@@ -13,11 +13,9 @@ public class MenuPrincipal extends MenuBase{
     public void processarOpcao(int opcao) {
         switch (opcao) {
             case 1:
-                new MenuLoginMedico();
-                break;
+                new MenuAcessoMedico().exibirOpcoes();
             case 2:
                 new MenuLoginPaciente();
-                break;
             case 0:
                 System.out.println("Saindo...");
                 System.exit(0);

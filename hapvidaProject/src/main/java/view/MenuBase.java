@@ -15,4 +15,6 @@ public abstract class MenuBase implements Menu {
         return scanner.nextInt();
     }
 
+
+
 }
