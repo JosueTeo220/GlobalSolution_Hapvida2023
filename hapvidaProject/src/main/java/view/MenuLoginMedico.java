@@ -26,7 +26,7 @@ public class MenuLoginMedico extends MenuBase{
         String senha = MenuUtils.lerTexto();
 
         try (Session session = sessionFactoryProvider.getSessionFactory().openSession()) {
-            session.beginTransaction();
+//            session.beginTransaction();
 
             Query<Medico> query = session.createQuery("FROM Medico WHERE documento = :crm AND pass = :senha", Medico.class);
             query.setParameter("crm", crm);

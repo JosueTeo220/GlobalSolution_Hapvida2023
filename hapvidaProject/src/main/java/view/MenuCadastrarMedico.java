@@ -16,10 +16,13 @@ public class MenuCadastrarMedico extends MenuBase {
         MenuUtils.limparConsole();
         System.out.println("* MENU CADASTRO MÉDICO *\n");
 
-        System.out.println("1. Digite sua CRM");
+        System.out.println("2. Digite seu nome");
+        String nome = MenuUtils.lerTexto();
+
+        System.out.println("2. Digite sua CRM");
         String crm = MenuUtils.lerTexto();
 
-        System.out.println("2. Digite sua senha");
+        System.out.println("3. Digite sua senha");
         String senha = MenuUtils.lerTexto();
 
 
@@ -32,6 +35,7 @@ public class MenuCadastrarMedico extends MenuBase {
             Medico medico = new Medico();
             medico.setDocumento(crm);
             medico.setPass(senha);
+            medico.setNome(nome);
 
             session.save(medico);
             session.getTransaction().commit();

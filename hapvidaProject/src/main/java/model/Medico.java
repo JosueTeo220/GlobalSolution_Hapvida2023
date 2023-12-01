@@ -14,5 +14,17 @@ public class Medico extends User{
     @OneToMany(mappedBy = "medico")
     private List<Paciente> pacientes;
 
+    private String Nome;
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String nome) {
+        Nome = nome;
+    }
+
+
+
 
 }

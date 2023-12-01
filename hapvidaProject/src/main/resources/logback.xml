@@ -2,19 +2,10 @@
 <configuration>
 
     <!-- desabilitando logs -->
-    <root level="OFF"/>
+    <logger name="org.hibernate.SQL" level="ERROR" />
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="ERROR" />
 
-    <!-- Configuração para exibir logs - somente se necesssrio) -->
-    <!--
-    <root level="WARN">
-        <appender-ref ref="STDOUT" />
-    </root>
 
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-    -->
 
-</configuration>
+
+</configuration>    

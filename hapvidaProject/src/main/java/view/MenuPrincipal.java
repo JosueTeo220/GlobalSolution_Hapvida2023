@@ -23,13 +23,7 @@ public class MenuPrincipal extends MenuBase{
         switch (opcao) {
             case 1:
                 new MenuAcessoMedico(sessionFactoryProvider).exibirOpcoes();
-            case 2:
-                new MenuLoginPaciente();
-            case 0:
-                System.out.println("Saindo...");
-                System.exit(0);
-            default:
-                System.out.println("Opção inválida!");
+                break;
         }
     }
 }

@@ -28,6 +28,18 @@ public class MenuUtils {
         return scanner.nextLine();
     }
 
+    public static int lerNumero(){
+        System.out.print("Digite: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
+    }
+
+    public static char lerChar(){
+        System.out.print("Digite: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.next().charAt(0);
+    }
+
     public static void aguardarTempoCurto() throws InterruptedException{
         Thread.sleep(1000);
     }

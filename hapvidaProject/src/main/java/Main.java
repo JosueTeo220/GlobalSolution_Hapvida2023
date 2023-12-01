@@ -1,5 +1,6 @@
 import model.Medico;
 import model.Paciente;
+import model.Sintomas;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -21,6 +22,7 @@ public class Main implements SessionFactoryProvider {
         Metadata metadata = new MetadataSources(registry)
                 .addAnnotatedClass(Medico.class)
                 .addAnnotatedClass(Paciente.class)
+                .addAnnotatedClass(Sintomas.class)
                 .getMetadataBuilder()
                 .build();
 
