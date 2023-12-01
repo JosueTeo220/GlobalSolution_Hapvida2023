@@ -12,7 +12,7 @@ public class MenuMedico extends MenuBase{
         MenuUtils.limparConsole();
         System.out.println("* MENU MÉDICO AUTENTICADO *\n");
 
-        System.out.println("1. Registrar nova consulta");
+        System.out.println("\n1. Registrar nova consulta");
         int opcao = lerOpcao();
         processar(opcao);
 

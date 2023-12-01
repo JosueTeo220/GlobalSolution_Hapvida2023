@@ -24,7 +24,7 @@ public class MenuCadastrarMedico extends MenuBase {
 
 
         try (Session session = sessionFactoryProvider.getSessionFactory().openSession()) {
-            System.out.println("Criando conta...");
+            System.out.println("\nCriando conta...");
             MenuUtils.aguardarTempoCurto();
             Medico existingMedico = (Medico) session.createQuery("FROM Medico WHERE documento = :crm")
                     .setParameter("crm", crm)
@@ -58,12 +58,14 @@ public class MenuCadastrarMedico extends MenuBase {
     @Override
     public void processar(int opcao) {
         try {
+            MenuUtils.limparConsole();
             System.out.println("Conta criada com sucesso!");
-            MenuUtils.aguardarTempoMedio();        
+            MenuUtils.aguardarTempoMedio();
+            new MenuAcessoMedico(sessionFactoryProvider).exibirOpcoes();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         
-        new MenuAcessoMedico(sessionFactoryProvider).exibirOpcoes();
+
     }
 }

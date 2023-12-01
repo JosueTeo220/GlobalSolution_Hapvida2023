@@ -13,6 +13,7 @@ public class Paciente extends User{
     private Medico medico;
     private String nome;
     private int idade;
+    @Enumerated(EnumType.STRING)
     private Genero sexo;
     @OneToOne
     private Sintomas sintomas;

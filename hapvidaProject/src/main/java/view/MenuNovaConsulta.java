@@ -1,5 +1,6 @@
 package view;
 
+import model.Genero;
 import model.Medico;
 import model.Paciente;
 import model.Sintomas;
@@ -27,7 +28,7 @@ public class MenuNovaConsulta extends MenuBase {
         int pacienteIdade = MenuUtils.lerNumero();
 
         System.out.println("3. Sexo [M ou F]: ");
-        char pacienteSexo = MenuUtils.lerChar();
+        char pacienteSexo = validarInputSexo();
 
         System.out.println("4. Documento do paciente: ");
         String pacienteDocumento = MenuUtils.lerTexto();
@@ -60,6 +61,8 @@ public class MenuNovaConsulta extends MenuBase {
         List<Medico> medicosDisponiveis = obterMedicosDisponiveis();
         Medico medicoSelecionado = selecionarMedico(medicosDisponiveis);
 
+        MenuUtils.limparConsole();
+
         try (Session session = sessionFactoryProvider.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             try {
@@ -76,6 +79,14 @@ public class MenuNovaConsulta extends MenuBase {
 
                 paciente.setSintomas(sintomas);
                 paciente.setMedico(medicoSelecionado);
+
+                if(pacienteSexo == 'M'){
+                    Genero generoM = Genero.M;
+                    paciente.setSexo(generoM);
+                }else if(pacienteSexo == 'F'){
+                    Genero generoF = Genero.F;
+                    paciente.setSexo(generoF);
+                }
 
                 session.save(paciente);
                 transaction.commit();
@@ -149,6 +160,19 @@ public class MenuNovaConsulta extends MenuBase {
         return input;
     }
 
+    public char validarInputSexo() {
+        char input = ' ';
+        while (input != 'M' && input != 'F') {
+            try {
+                System.out.print("Digite o sexo (M ou F): ");
+                input = Character.toUpperCase(MenuUtils.lerChar());
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return input;
+    }
+
     public List<Medico> obterMedicosDisponiveis() {
         try (Session session = sessionFactoryProvider.getSessionFactory().openSession()) {
             Query<Medico> query = session.createQuery("FROM Medico", Medico.class);
@@ -159,6 +183,7 @@ public class MenuNovaConsulta extends MenuBase {
         }
     }
     public Medico selecionarMedico(List<Medico> medicosDisponiveis) {
+        MenuUtils.limparConsole();
         System.out.println("Selecione um médico digitando o número correspondente:");
         for (int i = 0; i < medicosDisponiveis.size(); i++) {
             System.out.println((i + 1) + ". " + medicosDisponiveis.get(i).getNome());
