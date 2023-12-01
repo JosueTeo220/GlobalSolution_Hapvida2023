@@ -8,16 +8,13 @@ import org.hibernate.Transaction;
 import session.SessionFactoryProvider;
 import view.utils.MenuUtils;
 import org.hibernate.query.Query;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuNovaConsulta extends MenuBase {
-
     public MenuNovaConsulta(SessionFactoryProvider sessionFactoryProvider) {
         super(sessionFactoryProvider);
     }
-
     @Override
     public void exibirOpcoes() {
         MenuUtils.limparConsole();
@@ -55,10 +52,8 @@ public class MenuNovaConsulta extends MenuBase {
         MenuUtils.limparConsole();
 
         System.out.println("\nAgora vamos finalizar o cadastro do paciente");
-
         System.out.println("Abaixo escreva a receita médica");
         String pacienteReceita = MenuUtils.lerTexto();
-
 
         System.out.println("\nAgora associe um médico para associar a receita:");
 
@@ -68,7 +63,6 @@ public class MenuNovaConsulta extends MenuBase {
         try (Session session = sessionFactoryProvider.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
             try {
-
 
                 Paciente paciente = new Paciente();
                 paciente.setNome(pacienteNome);
@@ -85,7 +79,6 @@ public class MenuNovaConsulta extends MenuBase {
 
                 session.save(paciente);
                 transaction.commit();
-
 
                 MenuUtils.limparConsole();
                 System.out.println("Registro realizado com sucesso!");
@@ -107,8 +100,6 @@ public class MenuNovaConsulta extends MenuBase {
                 System.out.println("Encerrando...");
                 System.exit(0);
             }
-
-
         }
     }
 
@@ -135,15 +126,12 @@ public class MenuNovaConsulta extends MenuBase {
             char sintomaIntestinal = MenuUtils.lerChar();
             validarInputSintoma("Problemas intestinais", sintomaIntestinal);
 
-
             Sintomas sintomas = new Sintomas();
             sintomas.setFebreFromChar(sintomaFebre);
             sintomas.setDorDeCabecaFromChar(sintomaDorCabeca);
             sintomas.setGargantaInflamadaFromChar(sintomaGarganta);
             sintomas.setProblemasRespiratoriosFromChar(sintomaRespiratorio);
             sintomas.setProblemasIntestinaisFromChar(sintomaIntestinal);
-
-
 
         return sintomas;
     }

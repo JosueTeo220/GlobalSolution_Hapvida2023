@@ -2,8 +2,6 @@ package model;
 
 import javax.persistence.*;
 import java.util.List;
-
-
 @Entity
 @Table(name = "Medico")
 public class Medico extends User{
@@ -23,8 +21,5 @@ public class Medico extends User{
     public void setNome(String nome) {
         Nome = nome;
     }
-
-
-
 
 }

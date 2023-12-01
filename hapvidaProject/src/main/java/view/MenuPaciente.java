@@ -25,13 +25,10 @@ public class MenuPaciente extends MenuBase{
         String senha = MenuUtils.lerTexto();
 
         try (Session session = sessionFactoryProvider.getSessionFactory().openSession()) {
-//            session.beginTransaction();
 
             Query<Paciente> query = session.createQuery("FROM Paciente WHERE documento = :documento AND pass = :senha", Paciente.class);
             query.setParameter("documento", documento);
             query.setParameter("senha", senha);
-
-
 
             Paciente paciente = query.uniqueResult();
 
@@ -56,7 +53,6 @@ public class MenuPaciente extends MenuBase{
 
 
     }
-
     @Override
     public void processar(int opcao) {
         switch (opcao) {

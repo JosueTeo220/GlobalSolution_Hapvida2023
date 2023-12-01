@@ -1,17 +1,11 @@
 package view;
 
-
-
 import session.SessionFactoryProvider;
 import view.utils.MenuUtils;
-
-
 public class MenuMedico extends MenuBase{
-
     public MenuMedico(SessionFactoryProvider sessionFactoryProvider) {
         super(sessionFactoryProvider);
     }
-
 
     @Override
     public void exibirOpcoes() {
@@ -23,7 +17,6 @@ public class MenuMedico extends MenuBase{
         processar(opcao);
 
     }
-    
 
     @Override
     public void processar(int opcao) {
@@ -34,6 +27,4 @@ public class MenuMedico extends MenuBase{
                 break;
         }
     }
-
-
 }

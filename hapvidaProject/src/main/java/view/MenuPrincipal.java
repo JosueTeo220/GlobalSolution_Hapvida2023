@@ -4,11 +4,9 @@ import session.SessionFactoryProvider;
 import view.utils.MenuUtils;
 
 public class MenuPrincipal extends MenuBase{
-
     public MenuPrincipal(SessionFactoryProvider sessionFactoryProvider) {
         super(sessionFactoryProvider);
     }
-
     @Override
     public void exibirOpcoes(){
         MenuUtils.limparConsole();

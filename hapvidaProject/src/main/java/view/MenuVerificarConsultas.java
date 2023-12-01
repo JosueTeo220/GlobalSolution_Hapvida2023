@@ -2,18 +2,14 @@ package view;
 
 import model.Paciente;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import session.SessionFactoryProvider;
 import view.utils.MenuUtils;
-
 import java.util.List;
-
 public class MenuVerificarConsultas extends MenuBase{
     public MenuVerificarConsultas(SessionFactoryProvider sessionFactoryProvider) {
         super(sessionFactoryProvider);
     }
-
     @Override
     public void exibirOpcoes() {
         MenuUtils.limparConsole();
@@ -37,7 +33,6 @@ public class MenuVerificarConsultas extends MenuBase{
             }
         }
     }
-
     private List<Paciente> obterConsultasPorPaciente(String documento) {
         try (Session session = sessionFactoryProvider.getSessionFactory().openSession()) {
             Query<Paciente> query = session.createQuery(
@@ -49,7 +44,6 @@ public class MenuVerificarConsultas extends MenuBase{
             return List.of();
         }
     }
-
     @Override
     public void processar(int opcao) {
 
