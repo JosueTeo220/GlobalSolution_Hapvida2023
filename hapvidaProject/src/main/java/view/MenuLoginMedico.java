@@ -62,7 +62,7 @@ public class MenuLoginMedico extends MenuBase{
     public void processar(int opcao) {
         switch (opcao) {
             case 1:
-                new MenuMedico(sessionFactoryProvider).exibirOpcoes();;
+                new MenuMedico(sessionFactoryProvider).exibirOpcoes();
                 break;
             case 2:
                 exibirOpcoes();

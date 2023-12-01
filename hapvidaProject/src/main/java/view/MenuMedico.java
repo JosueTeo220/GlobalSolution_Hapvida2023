@@ -19,7 +19,6 @@ public class MenuMedico extends MenuBase{
         System.out.println("* MENU MÉDICO AUTENTICADO *\n");
 
         System.out.println("1. Registrar nova consulta");
-        System.out.println("2. Verificar consultas anteriores");
         int opcao = lerOpcao();
         processar(opcao);
 
@@ -32,9 +31,6 @@ public class MenuMedico extends MenuBase{
             case 1:
                 new MenuNovaConsulta(sessionFactoryProvider).exibirOpcoes();;
                
-                break;
-            case 2:
-                new MenuVerificarConsultas(sessionFactoryProvider).exibirOpcoes();
                 break;
         }
     }

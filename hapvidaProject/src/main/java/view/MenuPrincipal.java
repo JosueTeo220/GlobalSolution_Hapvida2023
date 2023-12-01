@@ -24,6 +24,13 @@ public class MenuPrincipal extends MenuBase{
             case 1:
                 new MenuAcessoMedico(sessionFactoryProvider).exibirOpcoes();
                 break;
+            case 2:
+                new MenuPaciente(sessionFactoryProvider).exibirOpcoes();
+                break;
+            case 3:
+                System.out.println("Saindo...");
+                System.exit(0);
+                break;
         }
     }
 }

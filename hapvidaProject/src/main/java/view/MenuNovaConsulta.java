@@ -53,7 +53,14 @@ public class MenuNovaConsulta extends MenuBase {
         System.out.println("\nAgora vamos finalizar o cadastro do paciente");
         Sintomas sintomas = coletarSintomas();
         MenuUtils.limparConsole();
-        System.out.println("\nAgora associe um médico:");
+
+        System.out.println("\nAgora vamos finalizar o cadastro do paciente");
+
+        System.out.println("Abaixo escreva a receita médica");
+        String pacienteReceita = MenuUtils.lerTexto();
+
+
+        System.out.println("\nAgora associe um médico para associar a receita:");
 
         List<Medico> medicosDisponiveis = obterMedicosDisponiveis();
         Medico medicoSelecionado = selecionarMedico(medicosDisponiveis);
@@ -68,6 +75,8 @@ public class MenuNovaConsulta extends MenuBase {
                 paciente.setIdade(pacienteIdade);
                 paciente.setDocumento(pacienteDocumento);
                 paciente.setPass(pacienteSenhaTemporaria);
+                paciente.setDescricao(descricaoGeral);
+                paciente.setPescricaoMedica(pacienteReceita);
 
                 session.save(sintomas);
 
@@ -75,9 +84,7 @@ public class MenuNovaConsulta extends MenuBase {
                 paciente.setMedico(medicoSelecionado);
 
                 session.save(paciente);
-
                 transaction.commit();
-
 
 
                 MenuUtils.limparConsole();
@@ -95,7 +102,10 @@ public class MenuNovaConsulta extends MenuBase {
                 if (session != null && session.isOpen()) {
                     session.close();
                 }
-                processar(1);
+                MenuUtils.limparConsole();
+                System.out.println("Pronto!");
+                System.out.println("Encerrando...");
+                System.exit(0);
             }
 
 
@@ -180,9 +190,6 @@ public class MenuNovaConsulta extends MenuBase {
         switch (opcao) {
             case 1:
                 new MenuPrincipal(sessionFactoryProvider);
-                break;
-            case 2:
-                new MenuCadastrarMedico(sessionFactoryProvider).exibirOpcoes();
                 break;
         }
     }

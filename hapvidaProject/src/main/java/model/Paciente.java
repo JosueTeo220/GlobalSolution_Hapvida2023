@@ -16,9 +16,9 @@ public class Paciente extends User{
     private Genero sexo;
     @OneToOne
     private Sintomas sintomas;
-
     private String documento;
     private String pescricaoMedica;
+    private String descricao;
 
     public Medico getMedico() {
         return medico;
@@ -79,6 +79,13 @@ public class Paciente extends User{
         this.pescricaoMedica = pescricaoMedica;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
 
 
