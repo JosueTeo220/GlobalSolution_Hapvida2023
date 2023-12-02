@@ -1,3 +1,4 @@
+Link do video Pitch: https://youtu.be/vUhxvyJGOYM?si=aFrTMWbOvxD6CPIf
 Link do video da aplicação funcionando: https://vimeo.com/890489595?share=copy
 
 Tecnologias utilizadas:
@@ -12,7 +13,7 @@ Pré-requisitos para executar:
 
 Ter o docker instalado
 Ter o java instalado
-Realizar o sync do maven para baixar as dependencias do projeto
+Realizar o sync do maven para baixar as dependências do projeto
 
 Passos para executar o projeto.
 
@@ -28,7 +29,7 @@ Rodar projeto:
 	1- Disponibilizamos um arquivo .jar nesse mesmo diretório aonde se encontra o readme do projeto
 	2- Execute no terminal o comando: [ java -jar .\GlobalSolution_Hapvida2023.jar ]
 
-		Dessa forma o projeto será executado com sucesso (lembre-se que o sync do maven pode ser necessário antes da primeira execução
+		Dessa forma o projeto será executado com sucesso (lembre-se que o sync do maven pode ser necessário antes da primeira execução)
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
