@@ -37,9 +37,7 @@ Observações:
 
 Sabemos que a estrutura da nossa aplicação pode ser um pouco complicada para executar, por isso me coloco à disposição para sanar eventuais dúvidas.
 
-Entre em contato comigo em qualquer horário que precisar:
-	Email: rm96679@fiap.com.br   ou   ronaldo.luizcp@gmail.com
-	Telefone: (11) 98885-1675 (também é whatsapp)
+
 
 
 
